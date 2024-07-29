@@ -13,6 +13,7 @@ export interface Row {
 
 export class DataManipulator {
   static generateRow(serverResponds: ServerRespond[]):Row {
+    // Map server data to row schema.
     const abc = serverResponds[0]
     const def = serverResponds[1]
     const price_abc = this.getPrice(abc)
@@ -52,6 +53,7 @@ export class DataManipulator {
   }
 
   private static calculateTriggerAlert(ratio:number){
+    // Causes an alert point to be plotted if ratio is out of bounds.
     if (ratio > this.upperBound || ratio < this.lowerBound){
       return ratio
     }
